@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	testhelper "github.com/iwilltry42/k8s-sidecar-injector/pkg/testing"
+	testhelper "github.com/iwilltry42/k8s-sidecar-injector/internal/pkg/testing"
 )
 
 var (
@@ -13,19 +13,19 @@ var (
 
 	testBadConfigs = map[string]testhelper.ConfigExpectation{
 		// test that a name with spurious use of ":" errors out on load
-		"versioned:with:extra:data:v3": testhelper.ConfigExpectation{
+		"versioned:with:extra:data:v3": {
 			Path:      fixtureSidecarsDir + "/bad/init-containers-colons-v3.yaml",
 			LoadError: ErrUnsupportedNameVersionFormat,
 		},
-		"missing name": testhelper.ConfigExpectation{
+		"missing name": {
 			Path:      fixtureSidecarsDir + "/bad/missing-name.yaml",
 			LoadError: ErrMissingName,
 		},
-		"inheritance filenotfound": testhelper.ConfigExpectation{
+		"inheritance filenotfound": {
 			Path:      fixtureSidecarsDir + "/bad/inheritance-filenotfound.yaml",
 			LoadError: fmt.Errorf(`error loading injection config from file test/fixtures/sidecars/bad/some-missing-file.yaml: open test/fixtures/sidecars/bad/some-missing-file.yaml: no such file or directory`),
 		},
-		"inheritance escape": testhelper.ConfigExpectation{
+		"inheritance escape": {
 			Path:      fixtureSidecarsDir + "/bad/inheritance-escape.yaml",
 			LoadError: fmt.Errorf(`error loading injection config from file test/fixtures/etc/passwd: open test/fixtures/etc/passwd: no such file or directory`),
 		},
@@ -33,7 +33,7 @@ var (
 
 	// test files and expectations
 	testGoodConfigs = map[string]testhelper.ConfigExpectation{
-		"sidecar-test": testhelper.ConfigExpectation{
+		"sidecar-test": {
 			Name:               "sidecar-test",
 			Version:            "latest",
 			Path:               fixtureSidecarsDir + "/sidecar-test.yaml",
@@ -44,7 +44,7 @@ var (
 			HostAliasCount:     0,
 			InitContainerCount: 0,
 		},
-		"complex-sidecar": testhelper.ConfigExpectation{
+		"complex-sidecar": {
 			Name:               "complex-sidecar",
 			Version:            "v420.69",
 			Path:               fixtureSidecarsDir + "/complex-sidecar.yaml",
@@ -55,7 +55,7 @@ var (
 			HostAliasCount:     0,
 			InitContainerCount: 0,
 		},
-		"env1": testhelper.ConfigExpectation{
+		"env1": {
 			Name:               "env1",
 			Version:            "latest",
 			Path:               fixtureSidecarsDir + "/env1.yaml",
@@ -66,7 +66,7 @@ var (
 			HostAliasCount:     0,
 			InitContainerCount: 0,
 		},
-		"volume-mounts": testhelper.ConfigExpectation{
+		"volume-mounts": {
 			Name:               "volume-mounts",
 			Version:            "latest",
 			Path:               fixtureSidecarsDir + "/volume-mounts.yaml",
@@ -77,7 +77,7 @@ var (
 			HostAliasCount:     0,
 			InitContainerCount: 0,
 		},
-		"host-aliases": testhelper.ConfigExpectation{
+		"host-aliases": {
 			Name:               "host-aliases",
 			Version:            "latest",
 			Path:               fixtureSidecarsDir + "/host-aliases.yaml",
@@ -88,7 +88,7 @@ var (
 			HostAliasCount:     6,
 			InitContainerCount: 0,
 		},
-		"init-containers": testhelper.ConfigExpectation{
+		"init-containers": {
 			Name:               "init-containers",
 			Version:            "latest",
 			Path:               fixtureSidecarsDir + "/init-containers.yaml",
@@ -99,7 +99,7 @@ var (
 			HostAliasCount:     0,
 			InitContainerCount: 1,
 		},
-		"versioned1": testhelper.ConfigExpectation{
+		"versioned1": {
 			Name:               "init-containers",
 			Version:            "v2",
 			Path:               fixtureSidecarsDir + "/init-containers-v2.yaml",
@@ -111,7 +111,7 @@ var (
 			InitContainerCount: 1,
 		},
 		// test simple inheritance
-		"simple inheritance from complex-sidecar": testhelper.ConfigExpectation{
+		"simple inheritance from complex-sidecar": {
 			Name:               "inheritance-complex",
 			Version:            "v1",
 			Path:               fixtureSidecarsDir + "/inheritance-1.yaml",
@@ -123,7 +123,7 @@ var (
 			InitContainerCount: 1,
 		},
 		// test deep inheritance
-		"deep inheritance from inheritance-complex": testhelper.ConfigExpectation{
+		"deep inheritance from inheritance-complex": {
 			Name:               "inheritance-deep",
 			Version:            "v2",
 			Path:               fixtureSidecarsDir + "/inheritance-deep-2.yaml",
@@ -134,7 +134,7 @@ var (
 			HostAliasCount:     3,
 			InitContainerCount: 2,
 		},
-		"service-account": testhelper.ConfigExpectation{
+		"service-account": {
 			Name:               "service-account",
 			Version:            "latest",
 			Path:               fixtureSidecarsDir + "/service-account.yaml",
@@ -148,7 +148,7 @@ var (
 		},
 		// we found that inheritance could cause the loading of the ServiceAccount
 		// to fail, so we test explicitly for this case.
-		"service-account-with-inheritance": testhelper.ConfigExpectation{
+		"service-account-with-inheritance": {
 			Name:               "service-account-inherits-env1",
 			Version:            "latest",
 			Path:               fixtureSidecarsDir + "/service-account-with-inheritance.yaml",
@@ -164,7 +164,7 @@ var (
 		// with a mountPath of /var/run/secrets/kubernetes.io/serviceaccount, we
 		// must remove it, to allow the ServiceAccountController to inject the
 		// appropriate token volume
-		"service-account-default-token": testhelper.ConfigExpectation{
+		"service-account-default-token": {
 			Name:               "service-account-default-token",
 			Version:            "latest",
 			Path:               fixtureSidecarsDir + "/service-account-default-token.yaml",
@@ -176,7 +176,7 @@ var (
 			InitContainerCount: 0,
 			ServiceAccount:     "someaccount",
 		},
-		"maxmind": testhelper.ConfigExpectation{
+		"maxmind": {
 			Name:               "maxmind",
 			Version:            "latest",
 			Path:               fixtureSidecarsDir + "/maxmind.yaml",
@@ -187,7 +187,7 @@ var (
 			HostAliasCount:     0,
 			InitContainerCount: 1,
 		},
-		"network-pid": testhelper.ConfigExpectation{
+		"network-pid": {
 			Name:        "test-network-pid",
 			Version:     "latest",
 			Path:        fixtureSidecarsDir + "/test-network-pid.yaml",
