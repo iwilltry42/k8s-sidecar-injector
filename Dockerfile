@@ -1,5 +1,5 @@
 ARG GO_VERSION=1.16
-FROM golang:${GO_VERSION}-alpine
+FROM golang:${GO_VERSION}-alpine AS builder
 
 RUN apk --no-cache add \
   ca-certificates \
@@ -19,7 +19,7 @@ ENV TLS_PORT=9443 \
     TLS_CERT_FILE=/var/lib/secrets/cert.crt \
     TLS_KEY_FILE=/var/lib/secrets/cert.key
 RUN apk --no-cache add ca-certificates bash
-COPY --from=0 /src/bin/k8s-sidecar-injector /bin/k8s-sidecar-injector
+COPY --from=builder /src/bin/k8s-sidecar-injector /bin/k8s-sidecar-injector
 COPY ./conf /conf
 COPY ./entrypoint.sh /bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
