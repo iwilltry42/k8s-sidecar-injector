@@ -1,4 +1,4 @@
-module github.com/tumblr/k8s-sidecar-injector
+module github.com/iwilltry42/k8s-sidecar-injector
 
 go 1.16
 

@@ -1,7 +1,7 @@
 package watcher
 
 import (
-	"github.com/tumblr/k8s-sidecar-injector/pkg/config"
+	"github.com/iwilltry42/k8s-sidecar-injector/pkg/config"
 )
 
 // Message is a message that describes a change and payload to a sidecar configuration

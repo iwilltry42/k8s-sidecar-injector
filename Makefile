@@ -1,4 +1,4 @@
-PACKAGE  = github.com/tumblr/k8s-sidecar-injector
+PACKAGE  = github.com/iwilltry42/k8s-sidecar-injector
 BINARY   = k8s-sidecar-injector
 DATE    ?= $(shell date +%FT%T%z)
 BRANCH  ?= $(shell git rev-parse --abbrev-ref HEAD)

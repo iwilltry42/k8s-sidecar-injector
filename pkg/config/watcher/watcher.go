@@ -10,8 +10,8 @@ import (
 	"strings"
 
 	"github.com/golang/glog"
-	"github.com/tumblr/k8s-sidecar-injector/pkg/config"
-	"k8s.io/api/core/v1"
+	"github.com/iwilltry42/k8s-sidecar-injector/pkg/config"
+	v1 "k8s.io/api/core/v1"
 	apierrs "k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/labels"

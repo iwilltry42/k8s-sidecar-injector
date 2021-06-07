@@ -4,7 +4,7 @@ Just some random notes about the design of the sidecar injector
 
 ## Mixin Injections
 
-On the note of why the `k8s-sidecar-injector` does not support multiple injections (aka "mixin" injections), https://github.com/tumblr/k8s-sidecar-injector/issues/17 articulates my thought process during design fairly well. Copying the body of the issue for posterity:
+On the note of why the `k8s-sidecar-injector` does not support multiple injections (aka "mixin" injections), https://github.com/iwilltry42/k8s-sidecar-injector/issues/17 articulates my thought process during design fairly well. Copying the body of the issue for posterity:
 
 ### Q
 

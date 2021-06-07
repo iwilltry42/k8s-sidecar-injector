@@ -2,7 +2,7 @@
 
 Uses MutatingAdmissionWebhook in Kubernetes to inject sidecars into new deployments at resource creation time
 
-![GitHub release](https://img.shields.io/github/release/tumblr/k8s-sidecar-injector.svg) ![Travis (.org)](https://img.shields.io/travis/tumblr/k8s-sidecar-injector.svg) ![Docker Automated build](https://img.shields.io/docker/automated/tumblr/k8s-sidecar-injector.svg) ![Docker Build Status](https://img.shields.io/docker/build/tumblr/k8s-sidecar-injector.svg) ![MicroBadger Size](https://img.shields.io/microbadger/image-size/tumblr/k8s-sidecar-injector.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/tumblr/k8s-sidecar-injector.svg) ![Docker Stars](https://img.shields.io/docker/stars/tumblr/k8s-sidecar-injector.svg) [![Godoc](https://godoc.org/github.com/tumblr/k8s-sidecar-injector?status.svg)](http://godoc.org/github.com/tumblr/k8s-sidecar-injector)
+![GitHub release](https://img.shields.io/github/release/tumblr/k8s-sidecar-injector.svg) ![Travis (.org)](https://img.shields.io/travis/tumblr/k8s-sidecar-injector.svg) ![Docker Automated build](https://img.shields.io/docker/automated/tumblr/k8s-sidecar-injector.svg) ![Docker Build Status](https://img.shields.io/docker/build/tumblr/k8s-sidecar-injector.svg) ![MicroBadger Size](https://img.shields.io/microbadger/image-size/tumblr/k8s-sidecar-injector.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/tumblr/k8s-sidecar-injector.svg) ![Docker Stars](https://img.shields.io/docker/stars/tumblr/k8s-sidecar-injector.svg) [![Godoc](https://godoc.org/github.com/iwilltry42/k8s-sidecar-injector?status.svg)](http://godoc.org/github.com/iwilltry42/k8s-sidecar-injector)
 
 
 # What is this?

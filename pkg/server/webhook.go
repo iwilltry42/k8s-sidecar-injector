@@ -9,9 +9,9 @@ import (
 	"strings"
 
 	"github.com/golang/glog"
+	"github.com/iwilltry42/k8s-sidecar-injector/pkg/config"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
-	"github.com/tumblr/k8s-sidecar-injector/pkg/config"
 	v1 "k8s.io/api/admission/v1"
 	admissionregistrationv1 "k8s.io/api/admissionregistration/v1"
 	corev1 "k8s.io/api/core/v1"

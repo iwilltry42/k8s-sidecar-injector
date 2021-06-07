@@ -3,11 +3,12 @@ package watcher
 import (
 	"context"
 	"errors"
-	"k8s.io/apimachinery/pkg/watch"
-	testcore "k8s.io/client-go/testing"
 	"testing"
 
-	_ "github.com/tumblr/k8s-sidecar-injector/internal/pkg/testing"
+	"k8s.io/apimachinery/pkg/watch"
+	testcore "k8s.io/client-go/testing"
+
+	_ "github.com/iwilltry42/k8s-sidecar-injector/internal/pkg/testing"
 	"k8s.io/client-go/kubernetes/fake"
 )
 
