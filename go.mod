@@ -4,15 +4,16 @@ go 1.16
 
 require (
 	github.com/dyson/certman v0.2.1
+	github.com/fsnotify/fsnotify v1.4.9 // indirect
 	github.com/ghodss/yaml v1.0.0
-	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
-	github.com/gorilla/handlers v1.4.2
-	github.com/gorilla/mux v1.7.4
-	github.com/imdario/mergo v0.3.11 // indirect
-	github.com/nsf/jsondiff v0.0.0-20200515183724-f29ed568f4ce
-	github.com/prometheus/client_golang v1.7.1
-	gopkg.in/yaml.v2 v2.3.0
-	k8s.io/api v0.20.2
-	k8s.io/apimachinery v0.20.2
-	k8s.io/client-go v0.20.2
+	github.com/golang/glog v0.0.0-20210429001901-424d2337a529
+	github.com/gorilla/handlers v1.5.1
+	github.com/gorilla/mux v1.8.0
+	github.com/imdario/mergo v0.3.12 // indirect
+	github.com/nsf/jsondiff v0.0.0-20210303162244-6ea32392771e
+	github.com/prometheus/client_golang v1.10.0
+	gopkg.in/yaml.v2 v2.4.0
+	k8s.io/api v0.21.1
+	k8s.io/apimachinery v0.21.1
+	k8s.io/client-go v0.21.1
 )
